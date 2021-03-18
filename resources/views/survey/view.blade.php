@@ -28,15 +28,15 @@
                 @elseif($question->question_type === 'radio')
                   @foreach($question->option_name as $key=>$value)
                     <p style="margin:0px; padding:0px;">
-                      <input name="{{ $question->id }}[answer]" type="radio" id="{{ $key }}_{{ $question->id }}" />
+                      <input name="{{ $question->id }}[answer]" type="radio" id="{{ $key }}_{{ $question->id }}" value="{{ $key }}" />
                       <label for="{{ $key }}_{{ $question->id }}">{{ $value }}</label>
                     </p>
                   @endforeach
                 @elseif($question->question_type === 'checkbox')
                   @foreach($question->option_name as $key=>$value)
                   <p style="margin:0px; padding:0px;">
-                    <input type="checkbox" id="something{{ $key }}_{{ $question->id }}" name="{{ $question->id }}[answer]" />
-                    <label for="something{{ $key }}_{{ $question->id }}">{{ $value }}</label>
+                    <input type="checkbox" id="something{{ $key }}_{{ $question->id }}" name="{{ $question->id }}[answer][]" value="{{ $key }}" />
+                    <label for="something{{ $key }}_{{ $question->id }}" >{{ $value }}</label>
                   </p>
                   @endforeach
                 @endif 
